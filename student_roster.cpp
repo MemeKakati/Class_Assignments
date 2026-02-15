@@ -49,6 +49,18 @@ int main(){
                     cin >> id;        
                     std::this_thread::sleep_for(std::chrono::seconds(1)); // wait 1 sec
                     
+                    bool id_exists = false;
+                    for(int i = 0; i < roster.size(); i++){
+                        if(roster[i].id == user_choice){
+                            id_exists = true;
+                            break;
+                        }
+                    }
+                    if(id_exists){
+                        cout<<"Error - ID already exists, cannot add student \n";
+                        continue;
+                    }
+                    
                     cout<<"Enter student name: ";
                     cin >> name;
                     cout<<"Loading... \n";
